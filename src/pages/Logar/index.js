@@ -13,15 +13,22 @@ import {
     from "./styles.js"
 
 import {useNavigation} from "@react-navigation/native"; 
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 
-
+import {AuthContext} from "../../provider/provider"
 
 
 export default function Logar() {
     const[email,setEmail] = useState('');
     const[senha,setSenha] = useState('')
     const navigation = useNavigation();
+    const {Logar} = useContext(AuthContext);
+
+
+    function Acessar(){
+       Logar(email,senha) 
+    
+    }
      
     return (
 
@@ -60,7 +67,7 @@ export default function Logar() {
 
             <AreaBotao>
 
-                <Botao  >
+                <Botao onPress={Acessar} >
 
                     <TextoBotao>Acessar</TextoBotao>
 

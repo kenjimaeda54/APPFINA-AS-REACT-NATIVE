@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
     AreaView,
     AreaTexto,
@@ -10,21 +10,23 @@ import {
 }
     from "./estilos.js"
 
-import {AuthContext} from "../../provider/provider"
+import { AuthContext } from "../../provider/provider"
+import { ActivityIndicator } from "react-native";
+
 
 //por estar usando Context a função não espera retornar nada
 //isto e fieto pelo useContext
 export default function Criar() {
-    const[email,setEmail] = useState('');
-    const[senha,setSenha] = useState('');
-    const[nome,setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [nome, setNome] = useState('');
 
-    const { Cadastro } = useContext(AuthContext);
+    const { Cadastro, lodingAuth } = useContext(AuthContext);
 
-    function Criar(){
-      Cadastro(nome,email,senha)
-      //ficar atento em <Provider/> forma que a função esta recebendo 
-      //deixar na mesma seguenci nome,email e senha
+    function Criar() {
+        Cadastro(nome, email, senha)
+        //ficar atento em <Provider/> forma que a função esta recebendo 
+        //deixar na mesma seguenci nome,email e senha
     }
 
     return (
@@ -42,7 +44,7 @@ export default function Criar() {
                         autoCorrect={false}
                         autoCapitalize='none'
                         value={nome}
-                        onChangeText={(item)=>setNome(item)}
+                        onChangeText={(item) => setNome(item)}
                     />
                 </AreaEntrada>
 
@@ -55,7 +57,7 @@ export default function Criar() {
                         autoCorrect={false}
                         autoCapitalize='none'
                         value={email}
-                        onChangeText={(item)=>setEmail(item)}
+                        onChangeText={(item) => setEmail(item)}
                     />
                 </AreaEntrada>
 
@@ -67,7 +69,8 @@ export default function Criar() {
                         autoCorrect={false}
                         autoCapitalize='none'
                         value={senha}
-                        onChangeText={(item)=>setSenha(item)}
+                        onChangeText={(item) => setSenha(item)}
+                        secureTextEntry={true}
                     />
 
                 </AreaEntrada>
@@ -77,8 +80,17 @@ export default function Criar() {
             <AreaBotao>
 
                 <Botao onPress={Criar} >
+                    {
+                        lodingAuth ? (
 
-                    <TextoBotao>Criar conta</TextoBotao>
+                            <ActivityIndicator size={15} color="black" />
+
+                        ) : (
+
+                            <TextoBotao>Criar conta</TextoBotao>
+                        )
+
+                    }
 
                 </Botao>
 

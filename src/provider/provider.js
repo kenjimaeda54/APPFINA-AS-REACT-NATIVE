@@ -9,6 +9,7 @@ export const AuthContext = createContext({});
 export default function AuthProvider({ children }) {
    const [user, setUser] = useState(null);
    const [loading,setLoading] = useState(true);
+   const [lodingAuth,setLoadingAuth] = useState(false);
 
 
    useEffect(()=>{
@@ -31,17 +32,22 @@ export default function AuthProvider({ children }) {
    },[])
 
    async function Logar(email,senha){
+           
+      setLoadingAuth(true)
+  
      await firebase.auth().signInWithEmailAndPassword(email,senha)
      .then( async (value)=>{
           let uid = value.user.uid;
           await firebase.database().ref('Usuarios').child(uid).once('value')
           .then((snapshot)=>{
             let data ={
+               uid:uid,
                nome: snapshot.val().nome,
                email: value.user.email,
             }
             setUser(data); 
             StorageUser(data);
+            setLoadingAuth(false)
             return;
               
           }) 
@@ -49,11 +55,15 @@ export default function AuthProvider({ children }) {
      })
      .catch((error)=>{
        alert(`Codigo do erro ${error.code}`)
+       setLoadingAuth(false)
      })
 
    }
 
    async function Cadastro(nome, email, senha) {
+      
+        setLoadingAuth(true);
+       
       await firebase.auth().createUserWithEmailAndPassword(email,senha)
          .then(async (value) => {
             let uid = value.user.uid
@@ -68,11 +78,13 @@ export default function AuthProvider({ children }) {
                }
                setUser(data);
                StorageUser(data);
+               setLoadingAuth(false)
                return;
             })
          })
          .catch((error)=>{
             alert(`Cogido de erro ${error.code}`)
+            setLoadingAuth(false)
          })
 
    }
@@ -82,17 +94,21 @@ export default function AuthProvider({ children }) {
    }
 
    async function Deslogar(){
+   
+      setLoadingAuth(true);
+
       await firebase.auth().signOut();
       await AsyncStorage.clear()
       .then(()=>{
          setUser(null);
       })
+      setLoadingAuth(false);
       return;
    }
 
    return (
       //contemUsuario e uma variavel é !!user,estou dizendo que esta variavel e false ou verdadeira
-      <AuthContext.Provider value={{ contemUsuario: !!user,user,loading,  Cadastro,Logar,Deslogar }} >
+      <AuthContext.Provider value={{ contemUsuario: !!user,user,loading,lodingAuth,Cadastro,Logar,Deslogar }} >
 
          {children}
 

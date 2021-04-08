@@ -10,13 +10,13 @@
 # npm i @react-native-community/async-storage
 npm install @react-native-community/datetimepicker --save
 ### Recursos utilizado
--- Para formatar datas e futuramente comparar  foi usado o  date-fns, com essa biblioteca é mais facil o procedimento,
+- Para formatar datas e futuramente comparar  foi usado o  date-fns, com essa biblioteca é mais facil o procedimento,
 documentação https://date-fns.org/
--- Navegação utlizei stack e drawer. O efeito drawer é o famosso burguer, bastante interesante sua função,foi totalmente customizado
+- Navegação utlizei stack e drawer. O efeito drawer é o famosso burguer, bastante interesante sua função,foi totalmente customizado
 na aplicação. Para utilizar de forma correta no projeto é necesasrio  importar 'react-native-gesture-handler'; Documentação https://reactnavigation.org/docs/getting-started
--- Utilizei nos estilos o  styled-component, com essa biblioteca manipulei os estilos e a props do JSX com css
--- Toda aplicação CRUD foi realizado com firebase
--- Utilizei o async storage , para garantir localmente algumas propriedades salvas,documentação https://www.mindbowser.com/asyncstorage-in-react-native/
--- Para passar as propriedades comuns entre as telas foi usado a Api context, com essa biblioteca automatizo essa função
--- Para os icones foi utlizado propria biblioteca padrão da expo, vector-icons. https://docs.expo.io/guides/icons/#expovector-icons
--- Para utilizar efeito de filtragem utilizei biblioteca datetimepicker , documentação https://github.com/react-native-datetimepicker/datetimepicker
+- Utilizei nos estilos o  styled-component, com essa biblioteca manipulei os estilos e a props do JSX com css
+- Toda aplicação CRUD foi realizado com firebase
+- Utilizei o async storage , para garantir localmente algumas propriedades salvas,documentação https://www.mindbowser.com/asyncstorage-in-react-native/
+- Para passar as propriedades comuns entre as telas foi usado a Api context, com essa biblioteca automatizo essa função
+- Para os icones foi utlizado propria biblioteca padrão da expo, vector-icons. https://docs.expo.io/guides/icons/#expovector-icons
+- Para utilizar efeito de filtragem utilizei biblioteca datetimepicker , documentação https://github.com/react-native-datetimepicker/datetimepicker

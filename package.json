@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/datetimepicker": "3.0.4",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-picker/picker": "^1.9.2",
     "@react-navigation/bottom-tabs": "^5.11.8",
@@ -29,7 +30,7 @@
     "react-native-web": "~0.13.12",
     "styled-component": "^2.8.0",
     "styled-components": "^5.2.3",
-    "undefined": "react-native-picker/picker"
+    "undefined": "react-native-community/datimepicker"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

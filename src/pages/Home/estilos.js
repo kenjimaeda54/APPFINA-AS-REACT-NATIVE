@@ -26,17 +26,24 @@ export const Lista = styled.FlatList`
 `;
 
 export const Title = styled.Text`
-    display:flex;
     width:50%;
     color:green;
     font-size:15px;
     font-style:italic;
     margin-left:40px;
-    margin-top:130px;
     //conselho você deu um tamanho de 500px;
     //para aparecer a tela apaixo foi necessario subir -400px;
     //para resolver retirou o heigth
 `;
+
+export const AreaTitle = styled.View`
+   flex-direction:row;
+   margin-top:60px;
+   margin-left:30px;
+`;
+
+
+
 export const List = styled.FlatList`
  width:90%;
  margin-left:20px;

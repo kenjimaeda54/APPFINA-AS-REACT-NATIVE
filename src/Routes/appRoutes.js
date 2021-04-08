@@ -3,18 +3,23 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 
 import Home from "../pages/Home";
-
+import CustomDrawer from "../../src/components/CutomDrawer"
 
 import Novo from "../pages/Novo";
 import Perfil from "../pages/Perfil"
 
 export default function AppRoutes() {
+ 
+    
     const Log = createDrawerNavigator();
 
     return (
 
 
         <Log.Navigator
+           
+        drawerContent={(props)=> <CustomDrawer {...props} /> }
+
             drawerStyle={{
                 backgroundColor: '#000',
             }}

@@ -1,15 +1,15 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Conteudo, Texto, List, Title, AreaTitle } from "./estilos"
 import firebase from "../../services/conection"
-import { format, isPast } from "date-fns"
-import { Alert, TouchableOpacity,Platform } from "react-native";
+import { format, isBefore } from "date-fns"
+import { Alert, TouchableOpacity, Platform } from "react-native";
 import { Feather } from "@expo/vector-icons"
+
 
 import Header from "../../components/header";
 import { AuthContext } from "../../provider/provider";
 import ListaTudo from "../../components/ListaTudo/";
 import DatePicker from "../../components/DatePicker/"
-
 
 
 
@@ -33,7 +33,7 @@ export default function Home() {
 
       await firebase.database().ref('Historico')
         .child(uid)
-        .orderByChild('date').equalTo(format(date, 'dd/MM/yy'))
+        .orderByChild('date').equalTo(format(date, 'dd/MM/yyy'))
         .limitToLast(10).on('value', (snapshot) => {
           setHistorico([])
 
@@ -55,29 +55,34 @@ export default function Home() {
 
   }, [date])
 
-  //com a função isPast garante que so vou excluir valores atuais
-  function deleteItem(data) {
-    if (isPast(new Date(data.data))) {
-      alert("Somente valores atuais são possiveis excluir")
-      return;
-    }
-    Alert.alert(
-      'Cuidado',
-      `Voce deseja excluir Tipo: ${data.tipo} é Valor:R$${data.saldo}`,
-      [
-        {
-          text: 'Cancelar',
-          style: 'Cancelar'
-        },
-        {
-          text: 'Deletar',
-          onPress: () => Deletar(data),
 
-        }
-      ]
+  function deleteItem(data) {   
+     const formata = format(new Date(), 'dd/MM/yyy');
+     const [diaAtual,mesAtual,anoAtual] = formata.split('/')
+     const atual = (`${diaAtual}/${mesAtual}/${anoAtual}`)
+     //data e o valor que recebo do array list{}
+     if(data.data != atual ){
+        alert('So é possivel excluir valores atuais');
+     }else{
 
-    )
 
+      Alert.alert(
+        'Cuidado',
+        `Voce deseja excluir Tipo: ${data.tipo} é Valor:R$${data.saldo}`,
+        [
+          {
+            text: 'Cancelar',
+            style: 'Cancelar'
+          },
+          {
+            text: 'Deletar',
+            onPress: () => Deletar(data),
+
+          }
+        ]
+
+      )
+      }
   }
 
   // estou recebendo a data se não funciona
@@ -106,14 +111,14 @@ export default function Home() {
   }
   function fechar() {
     setShow(false)
-    
+
 
   }
 
   const onChange = (dataAtual) => {
     setShow(Platform.OS === 'ios');
     setDate(dataAtual);
-    
+
   }
 
 

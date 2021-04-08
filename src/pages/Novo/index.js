@@ -49,7 +49,7 @@ export default function Novo() {
     await firebase.database().ref('Historico').child(uid).child(key).set({
       tipo: tipo,
       valor: parseFloat(valor),
-      date: format(new Date(), 'dd/MM/yy')
+      date: format(new Date(), 'dd/MM/yyy')
       //cuidado com a falta de imports
       //formatando a data garanto que sempre vai manter esse padrão
 

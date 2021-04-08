@@ -7,6 +7,7 @@ import Routes from "./src/Routes/index"
 
 import AuthProvider from "./src/provider/provider"
 
+
 export default function App() {
   return (
 

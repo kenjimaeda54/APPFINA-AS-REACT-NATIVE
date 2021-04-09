@@ -15,7 +15,7 @@ documentação https://date-fns.org/
 - Navegação utlizei stack e drawer. O efeito drawer é o famosso burguer, bastante interesante sua função,foi totalmente customizado
 na aplicação. Para utilizar de forma correta no projeto é necesasrio  importar 'react-native-gesture-handler'; Documentação https://reactnavigation.org/docs/getting-started
 - Utilizei nos estilos o  styled-component, com essa biblioteca manipulei os estilos e a props do JSX com css
-- Toda aplicação CRUD foi realizado com firebase
+- Toda aplicação CRUD é autenticação foi realizado com firebase
 - Utilizei o async storage , para garantir localmente algumas propriedades salvas,documentação https://www.mindbowser.com/asyncstorage-in-react-native/
 - Para passar as propriedades comuns entre as telas foi usado a Api context, com essa biblioteca automatizo essa função
 - Para os icones foi utlizado  biblioteca padrão da expo,sem necessidade de instalar biblioteca,vector-icons. https://docs.expo.io/guides/icons/#expovector-icons

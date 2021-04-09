@@ -8,7 +8,7 @@
 # npm install --save styled-components
 # npm install --save firebase
 # npm i @react-native-community/async-storage
-npm install @react-native-community/datetimepicker --save
+# npm install @react-native-community/datetimepicker --save
 ### Recursos utilizado
 - Para formatar datas e futuramente comparar  foi usado o  date-fns, com essa biblioteca é mais facil o procedimento,
 documentação https://date-fns.org/

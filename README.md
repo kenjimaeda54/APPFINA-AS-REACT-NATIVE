@@ -19,4 +19,4 @@ na aplicação. Para utilizar de forma correta no projeto é necesasrio  importa
 - Utilizei o async storage , para garantir localmente algumas propriedades salvas,documentação https://www.mindbowser.com/asyncstorage-in-react-native/
 - Para passar as propriedades comuns entre as telas foi usado a Api context, com essa biblioteca automatizo essa função
 - Para os icones foi utlizado propria biblioteca padrão da expo, vector-icons. https://docs.expo.io/guides/icons/#expovector-icons
-- Para utilizar efeito de filtragem utilizei biblioteca datetimepicker , documentação https://github.com/react-native-datetimepicker/datetimepicker
+- Para fazer efeito de moldal, filtragem de datas,utilizei biblioteca datetimepicker , documentação https://github.com/react-native-datetimepicker/datetimepicker

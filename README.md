@@ -18,5 +18,7 @@ na aplicação. Para utilizar de forma correta no projeto é necesasrio  importa
 - Toda aplicação CRUD foi realizado com firebase
 - Utilizei o async storage , para garantir localmente algumas propriedades salvas,documentação https://www.mindbowser.com/asyncstorage-in-react-native/
 - Para passar as propriedades comuns entre as telas foi usado a Api context, com essa biblioteca automatizo essa função
-- Para os icones foi utlizado propria biblioteca padrão da expo, vector-icons. https://docs.expo.io/guides/icons/#expovector-icons
-- Para fazer efeito de moldal, filtragem de datas,utilizei biblioteca datetimepicker , documentação https://github.com/react-native-datetimepicker/datetimepicker
+- Para os icones foi utlizado  biblioteca padrão da expo,sem necessidade de instalar biblioteca,vector-icons. https://docs.expo.io/guides/icons/#expovector-icons
+- Para fazer efeito de moldal filtragem de datas,utilizei biblioteca DateTimepicker , documentação https://github.com/react-native-datetimepicker/datetimepicker
+- Ciclo de vida usado foi o useEfect , semelhante ao componentDidUptade, com esse ciclo de vida foi possivel atualizar a lista a cada data.
+- Todo o projeto foi usado Hooks 
